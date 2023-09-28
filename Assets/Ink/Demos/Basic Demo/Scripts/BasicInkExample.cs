@@ -118,13 +118,19 @@ public class BasicInkExample : MonoBehaviour
         }
         else if (eventType == "DMX")
         {
-            // TODO: More than one tag per choice because we need to send messages to two light bulbs.
             string channel = tagData[1];
             int brightness = int.Parse(tagData[2]);
-            var message = new OSCMessage(channel);
-            message.AddValue(OSCValue.Int(brightness));
+            SendDMXMessage(channel, brightness);
 
-            Transmitter.Send(message);
+            if (!string.IsNullOrWhiteSpace(choice.tags[1]))
+            {
+                // More than one tag per choice when we need to send messages to two light bulbs (and maybe the fog machine? TODO:).
+				// TODO: Test with the DMX setup.
+                string[] tagData2 = choice.tags?[1].Split(' ');
+                string channel2 = tagData2[1];
+                int brightness2 = int.Parse(tagData2[2]);
+                SendDMXMessage(channel2, brightness2);
+            }
         }
     }
 
@@ -139,6 +145,14 @@ public class BasicInkExample : MonoBehaviour
         {
             Console.WriteLine("Audio clip with Key = \"tif\" is not found.");
         }
+    }
+
+    void SendDMXMessage(string channel, int brightness)
+    {
+        var message = new OSCMessage(channel);
+        message.AddValue(OSCValue.Int(brightness));
+
+        Transmitter.Send(message);
     }
 
     // Creates a textbox showing the the line of text

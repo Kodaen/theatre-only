@@ -440,7 +440,7 @@ Si Ducray continue de boire, il n'y aurait pas de retour en arrière. Sa nuit va
 
 = grand_final
 /* Ducray s'endort. Rideau. Coup de téléphone qui retentit. Le rideau s'ouvre à nouveau. Ducray dort. La sonnerie finit par le réveiller. Un téléphone pend devant lui. Peut-être qu'une personne est assise sur la chaise (en mode chaise électrique). Ducray décroche le téléphone pendu. La personne assise décroche l'autre téléphone.*/
-* Décrocher.
+* Décrocher.  #DMX /1 100 #DMX /3 255
     ** Allô ?
         Qu’est c’que tu veux ?
         *** Tu me hantes.
