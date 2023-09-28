@@ -40,9 +40,6 @@ public class BasicInkExample : MonoBehaviour
         story = new Story(inkJSONAsset.text);
         if (OnCreateStory != null) OnCreateStory(story);
         RefreshView();
-
-        // Intro doesn't work with choices, hardcode it.
-        audioSource.PlayOneShot(audioClips["intro-voice"]);
     }
 
     string[] ParseTag(string tag)
@@ -67,6 +64,19 @@ public class BasicInkExample : MonoBehaviour
             text = text.Trim();
             // Display the text on screen!
             CreateContentView(text);
+        }
+
+        if (story.currentTags.Count > 0)
+        {
+            string[] tagData = story.currentTags?[0].Split(' ');
+            string eventType = tagData[0];
+            if (eventType == "audio")
+            {
+                // Assume there is just one tag per choice and the second splitted value is the file to play.
+                string audioClipName = tagData[1];
+                PlaySoundForChoice(audioClipName);
+                Debug.Log(audioClipName);
+            }
         }
 
         // Display all the choices, if there are any!
@@ -97,8 +107,6 @@ public class BasicInkExample : MonoBehaviour
     // When we click the choice button, tell the story to choose that choice!
     void OnClickChoiceButton(Choice choice)
     {
-        //Ensure voices don't overlap if the player decides to click before previous voice line is playing.
-        audioSource.Stop();
         story.ChooseChoiceIndex(choice.index);
         RefreshView();
 
@@ -153,6 +161,9 @@ public class BasicInkExample : MonoBehaviour
 
     void PlaySoundForChoice(string audioClipName)
     {
+        //Ensure voices don't overlap if the player decides to click before previous voice line is playing.
+        audioSource.Stop();
+
         AudioClip value = null;
         if (audioClips.TryGetValue(audioClipName, out value))
         {
@@ -160,7 +171,7 @@ public class BasicInkExample : MonoBehaviour
         }
         else
         {
-            Console.WriteLine("Audio clip with Key = \"tif\" is not found.");
+            Debug.Log("Audio clip with Key = \"" + audioClipName + "\" is not found.");
         }
     }
 
