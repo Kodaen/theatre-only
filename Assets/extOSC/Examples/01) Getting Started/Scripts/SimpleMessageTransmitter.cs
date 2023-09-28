@@ -8,7 +8,8 @@ namespace extOSC.Examples
 	{
 		#region Public Vars
 
-		public string Address = "/1";
+		public string Address = "/2";
+		public int Value = 0;
 
 		[Header("OSC Settings")]
 		public OSCTransmitter Transmitter;
@@ -20,7 +21,7 @@ namespace extOSC.Examples
 		protected virtual void Start()
 		{
 			var message = new OSCMessage(Address);
-			message.AddValue(OSCValue.Int(1));
+			message.AddValue(OSCValue.Int(Value));
 
 			Transmitter.Send(message);
 		}

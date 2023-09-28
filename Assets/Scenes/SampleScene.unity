@@ -952,6 +952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Address: /1
+  Value: 1
   Transmitter: {fileID: 1067290693}
 --- !u!4 &1289760716
 Transform:
