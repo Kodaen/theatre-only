@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using extOSC;
 using Ink.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,9 @@ using UnityEngine.UI;
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class BasicInkExample : MonoBehaviour
 {
+    [Header("OSC Settings")]
+    public OSCTransmitter Transmitter;
+
     public static event Action<Story> OnCreateStory;
 
     private AudioSource audioSource;
@@ -98,18 +102,43 @@ public class BasicInkExample : MonoBehaviour
         story.ChooseChoiceIndex(choice.index);
         RefreshView();
 
-        // Assume there is always one tag per choice and the second splitted value is the file to play.
-        // TODO: check if the first splitted value is audio or DMX. For now there are only audio cues in the ink file.
+        // TODO: Add all 200+ tags.
+        if (choice.tags == null)
+        {
+            return;
+        }
+
+        string[] tagData = choice.tags?[0].Split(' ');
+        string eventType = tagData[0];
+        if (eventType == "audio")
+        {
+            // Assume there is just one tag per choice and the second splitted value is the file to play.
+            string audioClipName = tagData[1];
+            PlaySoundForChoice(audioClipName);
+        }
+        else if (eventType == "DMX")
+        {
+            // TODO: More than one tag per choice because we need to send messages to two light bulbs.
+            string channel = tagData[1];
+            int brightness = int.Parse(tagData[2]);
+            var message = new OSCMessage(channel);
+            message.AddValue(OSCValue.Int(brightness));
+
+            Transmitter.Send(message);
+        }
+    }
+
+    void PlaySoundForChoice(string audioClipName)
+    {
         AudioClip value = null;
-		string audioClipName = choice.tags?[0].Split(' ')[1];
-        if (!string.IsNullOrWhiteSpace(audioClipName) && audioClips.TryGetValue(audioClipName, out value))
+        if (audioClips.TryGetValue(audioClipName, out value))
         {
             audioSource.PlayOneShot(audioClips[audioClipName]);
         }
         else
         {
             Console.WriteLine("Audio clip with Key = \"tif\" is not found.");
-        }   
+        }
     }
 
     // Creates a textbox showing the the line of text

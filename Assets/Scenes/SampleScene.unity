@@ -380,6 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e957d58a4584a8894329531ec0b096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Transmitter: {fileID: 1067290693}
   audioClipsList:
   - {fileID: 8300000, guid: ad92030c072fc2f45b5fecc3a43de6d0, type: 3}
   - {fileID: 8300000, guid: ce4d117c55d13394594eb7834c662656, type: 3}

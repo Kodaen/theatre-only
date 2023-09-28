@@ -21,10 +21,10 @@ VAR colere = false
 //* {nb_drinks == 1} Se resservir un verre.
 //* {nb_drinks == 2} Un petit troisième pour la route.
 
-* {introduction == 1} Bâiller.
+* {introduction == 1} Bâiller. #audio yawn-choice
     Ducray se met à bâiller exagérément. Si quelqu'un d'autre avait été présent, il aurait sans doute bâillé à son tour. Mais il n'y a personne.
     -> introduction
-* Regarder l'heure.
+* Regarder l'heure. #audio intro-voice
     À en juger par le silence qui règne au commissariat, il est tard. À cette heure de la nuit, on ne trouve plus que ceux qui bossent trop, et ceux qui ne bossent pas assez. Difficile de dire à quelle catégorie le commissaire Ducray appartient. /*Il regarde l'horloge*/ Il jette un oeil sur l'horloge. Il devrait être rentré depuis longtemps. 02h51. À ce stade, c'est plutôt l'heure qui vous regarde que l'inverse. L'heure vous juge.
     ** Laisser tomber.
         -> introduction
@@ -39,7 +39,7 @@ VAR colere = false
             **** Refouler le souvenir.
                 /*Il inspire fort*/ Une grande inspiration et le souvenir est déjà loin.
             ---- -> introduction
- * (regarder_bureau) Poser son regard sur le bureau.
+ * (regarder_bureau) Poser son regard sur le bureau. #DMX /1 100
     Derrière l'énorme tas de dossiers, on distingue à peine le bois du bureau. Du chêne. Le bureau de Ducray est à l'image de sa vie : bordélique. Chaotique. Abîmé. En instance de divorce.
     ** (fouiller_bureau) Fouiller parmi les dossiers.
         /* Il fouille dans les dossiers*/ {Les dossiers s'escaladent les uns les autres. Derrière cette apparent chaos se cache en réalité une logique implacable : il y a les dossiers, et il y a le dossier. | }
