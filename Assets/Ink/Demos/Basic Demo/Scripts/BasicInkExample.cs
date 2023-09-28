@@ -37,7 +37,7 @@ public class BasicInkExample : MonoBehaviour
         if (OnCreateStory != null) OnCreateStory(story);
         RefreshView();
 
-		// Intro doesn't work with choices, hardcode it.
+        // Intro doesn't work with choices, hardcode it.
         audioSource.PlayOneShot(audioClips["intro-voice"]);
     }
 
@@ -98,9 +98,18 @@ public class BasicInkExample : MonoBehaviour
         story.ChooseChoiceIndex(choice.index);
         RefreshView();
 
-		// Assume there is always one tag per choice and the second splitted value is the file to play.
-		// TODO: check if the first splitted value is audio or DMX. For now there are only audio cues in the ink file.
-        audioSource.PlayOneShot(audioClips[choice.tags[0].Split(' ')[1]]);
+        // Assume there is always one tag per choice and the second splitted value is the file to play.
+        // TODO: check if the first splitted value is audio or DMX. For now there are only audio cues in the ink file.
+        AudioClip value = null;
+		string audioClipName = choice.tags?[0].Split(' ')[1];
+        if (!string.IsNullOrWhiteSpace(audioClipName) && audioClips.TryGetValue(audioClipName, out value))
+        {
+            audioSource.PlayOneShot(audioClips[audioClipName]);
+        }
+        else
+        {
+            Console.WriteLine("Audio clip with Key = \"tif\" is not found.");
+        }   
     }
 
     // Creates a textbox showing the the line of text
