@@ -24,11 +24,11 @@ VAR colere = false
 * {introduction == 1} Bâiller. #audio yawn-choice
     Ducray se met à bâiller exagérément. Si quelqu'un d'autre avait été présent, il aurait sans doute bâillé à son tour. Mais il n'y a personne.
     -> introduction
-* Regarder l'heure. #audio intro-voice
+* Regarder l'heure. #DMX /1 100 #DMX /3 255
     À en juger par le silence qui règne au commissariat, il est tard. À cette heure de la nuit, on ne trouve plus que ceux qui bossent trop, et ceux qui ne bossent pas assez. Difficile de dire à quelle catégorie le commissaire Ducray appartient. /*Il regarde l'horloge*/ Il jette un oeil sur l'horloge. Il devrait être rentré depuis longtemps. 02h51. À ce stade, c'est plutôt l'heure qui vous regarde que l'inverse. L'heure vous juge.
     ** Laisser tomber.
         -> introduction
-    ** (duel_horloge) Affronter le regard de l'horloge.
+    ** (duel_horloge) Affronter le regard de l'horloge. #DMX /1 100 #DMX /3 255 true
         Face au regard de l'horloge, pas question de baisser les yeux. Sans trop savoir pourquoi, Ducray resta planté un moment, à fixer l'heure. À la juger en retour.
         *** Jeter l'éponge.
             ~despair ++
@@ -440,7 +440,7 @@ Si Ducray continue de boire, il n'y aurait pas de retour en arrière. Sa nuit va
 
 = grand_final
 /* Ducray s'endort. Rideau. Coup de téléphone qui retentit. Le rideau s'ouvre à nouveau. Ducray dort. La sonnerie finit par le réveiller. Un téléphone pend devant lui. Peut-être qu'une personne est assise sur la chaise (en mode chaise électrique). Ducray décroche le téléphone pendu. La personne assise décroche l'autre téléphone.*/
-* Décrocher.  #DMX /1 100 #DMX /3 255
+* Décrocher.  #DMX /1 100 #DMX /3 255 true
     ** Allô ?
         Qu’est c’que tu veux ?
         *** Tu me hantes.

@@ -125,11 +125,28 @@ public class BasicInkExample : MonoBehaviour
             if (!string.IsNullOrWhiteSpace(choice.tags[1]))
             {
                 // More than one tag per choice when we need to send messages to two light bulbs (and maybe the fog machine? TODO:).
-				// TODO: Test with the DMX setup.
+                // TODO: Test with the DMX setup.
                 string[] tagData2 = choice.tags?[1].Split(' ');
                 string channel2 = tagData2[1];
                 int brightness2 = int.Parse(tagData2[2]);
-                SendDMXMessage(channel2, brightness2);
+
+                // blink should be set to true, skip value check
+                // not possible to have optional parameters but we should only blink once at the end.
+                bool blink = tagData2.Length == 4;
+                if (blink)
+                {
+                    // TODO: Test if 30 is too much / not enough.
+                    // TODO: Replace DMX with audio at the begining after test.
+                    for (int i = 0; i < 30; i++)
+                    {
+                        SendDMXMessage(i % 2 == 0 ? "/1" : "/3", i % 2 == 0 ? 255 : 0);
+                        SendDMXMessage(i % 2 == 0 ? "/3" : "/1", i % 2 == 0 ? 0 : 255);
+                    }
+                }
+                else
+                {
+                    SendDMXMessage(channel2, brightness2);
+                }
             }
         }
     }
