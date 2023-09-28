@@ -14,7 +14,7 @@ VAR colere = false
 
 // SCENE PREMIERE //
 == introduction ==
-{Il règne sur le commissariat un silence pesant. Une énorme pile de dossiers couvre presque entièrement ce qui fût un jour un bureau. Ducray est assis derrière, pensif. Absent. | Ducray gît derrière son bureau.}
+{Il règne sur le commissariat un silence pesant. Une énorme pile de dossiers couvre presque entièrement ce qui fût un jour un bureau. Ducray est assis derrière, pensif. Absent. | Ducray gît derrière son bureau.} #audio intro-voice
 
 * {alcool_is_visible} Se servir un verre.
     Ducray se sert un verre. -> introduction
@@ -96,7 +96,7 @@ VAR colere = false
                                 Quand une personne ingère du cyanure, son haleine exhale un léger parfum d'amande. Jade n'a pas été noyée, elle a été empoisonnée.
                             ********** Un meurtre politique.
                                 Peut-être. Les activités militantes de Jade étaient mal vues de tout un tas de personne, à commencer par sa propre famille, qui règne sur un véritable empire financier, érigé sur la sueur des prolétaire de tout le pays.
-                            ********** Un meurtre famillial.
+                            ********** Un meurtre famillial. #audio meurtre-familial
                                 Possible. Jade, par ses actions politiques, mettait sa famille dans l'embarras. Une famille très puissante, et très riche. Jade devenait gênante pour les affaires...
                             ********** Un suicide.
                                 C'est la thèse à laquelle Ducray veut croire. Il l'imagine ingérer du cyanure puis décider d'aller prendre un dernier bain. Se laisser mourir paisiblement, bercée par le mouvement de l'eau. Jade serait morte noyée, incapable de nagée suite aux effets du poison. Ça expliquerait la robe de soirée : personne n'aurait l'idée de se suicider en bikini.
