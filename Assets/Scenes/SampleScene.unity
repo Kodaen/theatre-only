@@ -530,6 +530,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introVoice: {fileID: 8300000, guid: ad92030c072fc2f45b5fecc3a43de6d0, type: 3}
+  yawnChoice: {fileID: 8300000, guid: ce4d117c55d13394594eb7834c662656, type: 3}
+  audioClipsList:
+  - {fileID: 8300000, guid: ad92030c072fc2f45b5fecc3a43de6d0, type: 3}
+  - {fileID: 8300000, guid: ce4d117c55d13394594eb7834c662656, type: 3}
   inkJSONAsset: {fileID: 4900000, guid: 9f6412a58a233824883b8869367428ec, type: 3}
   canvas: {fileID: 1940341235}
   textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}

@@ -15,10 +15,10 @@ VAR cup_is_already_full = true
 //* {nb_drinks == 1} Se resservir un verre.
 //* {nb_drinks == 2} Un petit troisième pour la route.
 
-* {introduction == 1} Bâiller.
-    Ducray se met à bâiller exagérément. Si quelqu'un d'autre avait été présent, il aurait sans doute bâillé à son tour. Mais il n'y a personne.
+* {introduction == 1} Bâiller. #audio yawn-choice
+    Ducray se met à bâiller exagérément. Si quelqu'un d'autre avait été présent, il aurait sans doute bâillé à son tour. Mais il n'y a personne. 
     -> introduction
-* Regarder l'heure.
+* Regarder l'heure. #audio intro-voice
     À en juger par le silence qui règne au commissariat, il est tard. À cette heure de la nuit, on ne trouve plus que ceux qui bossent trop, et ceux qui ne bossent pas assez. Difficile de dire à quelle catégorie le commissaire Ducray appartient. /*Il regarde l'horloge*/ Il jette un oeil sur l'horloge. Il devrait être rentré depuis longtemps. 02h51. À ce stade, c'est plutôt l'heure qui vous regarde que l'inverse. L'heure vous juge.
     ** Laisser tomber.
         -> introduction
