@@ -26,14 +26,14 @@ VAR colere = false
     -> introduction
 * Regarder l'heure. #DMX /1 100 #DMX /3 255 #audio heure #audio silence-com 2 #audio oeil-horloge 17 /* TODO: heure mauvaise cut ou pas + 17 ok ou pas  */
     À en juger par le silence qui règne au commissariat, il est tard. À cette heure de la nuit, on ne trouve plus que ceux qui bossent trop, et ceux qui ne bossent pas assez. Difficile de dire à quelle catégorie le commissaire Ducray appartient. /*Il regarde l'horloge*/ Il jette un oeil sur l'horloge. Il devrait être rentré depuis longtemps. 02h51. À ce stade, c'est plutôt l'heure qui vous regarde que l'inverse. L'heure vous juge.
-    ** Laisser tomber.
+    ** Laisser tomber. #audio laisser-tomber
         -> introduction
-    ** (duel_horloge) Affronter le regard de l'horloge. #DMX /1 100 #DMX /3 255 true
+    ** (duel_horloge) Affronter le regard de l'horloge. #DMX /1 100 #DMX /3 255 true #audio affronter-horloge #audio regard-horloge 7
         Face au regard de l'horloge, pas question de baisser les yeux. Sans trop savoir pourquoi, Ducray resta planté un moment, à fixer l'heure. À la juger en retour.
-        *** Jeter l'éponge.
+        *** Jeter l'éponge. #audio jeter-eponge #audio admettre-defaite 5
             ~despair ++
             Après un long moment, Ducray dût bien admettre sa défaite. Une de plus. Voilà bien longtemps que le commissaire n'avait pas connu de victoire. À bien y réfléchir, sa vie n'avait été qu'une succession de défaite. La dernière victoire à laquelle il pouvait se raccrocher remontait à l'école primaire, lorsqu'il avait remporté une médaille d'argent à la natation.
-            **** (medaille_argent) La médaille d'argent.
+            **** (medaille_argent) La médaille d'argent. #audio medaille-argent #audio gout-amer 4
                 Même cette victoire avait un goût amer. Il n'éprouvait aucun plaisir à y repenser. À cause de la piscine, sans doute...
                 ~despair ++
             **** Refouler le souvenir. #audio refouler-souvenir #audio grande-inspiration 4
@@ -441,20 +441,20 @@ Si Ducray continue de boire, il n'y aurait pas de retour en arrière. Sa nuit va
 = grand_final
 /* Ducray s'endort. Rideau. Coup de téléphone qui retentit. Le rideau s'ouvre à nouveau. Ducray dort. La sonnerie finit par le réveiller. Un téléphone pend devant lui. Peut-être qu'une personne est assise sur la chaise (en mode chaise électrique). Ducray décroche le téléphone pendu. La personne assise décroche l'autre téléphone.*/
 * Décrocher.  #DMX /1 100 #DMX /3 255 true #video
-    ** Allô ?
+    ** Allô ? #audio allo #audio tu-veux 2
         Qu’est c’que tu veux ?
-        *** Tu me hantes.
+        *** Tu me hantes. #audio tu-me-hantes #audio seul-hanter 3
             Tu es si seul là bas que tu reviens dans mon monde pour me hanter ?
-        *** Ne pas se laisser culpabiliser.
+        *** Ne pas se laisser culpabiliser. /* TODO: audio 1 */ #audio travers-gorge 5
             Tu l’as encore en travers de la gorge ?
-    ** Il est tard pour appeler les gens.
+    ** Il est tard pour appeler les gens. #audio tard-appeler #audio pire-moment 7
         Pourquoi tu t’ramènes toujours au pire moment ?
-        *** Pas envie de parler ce soir.
+        *** Pas envie de parler ce soir. #audio pas-envie-parler #audio pas-envie-causer 6
              J’ai vraiment pas envie d’te causer. Maintenant va et marche, où que tu sois.
-        *** Tu m'emmerdes.
+        *** Tu m'emmerdes. #audio emmerde #audio faire-chier 4
             C’est prodigieux que tu parviennes à me faire chier en étant aussi loin.
-    -- Enfin bon...
-    ** Je suis désolé.
+    -- Enfin bon... #audio enfin-bon
+    ** Je suis désolé. #audio suis-desole #audio desole-traitement 3
         Tu sais, j’suis désolé que tu ais reçu pareil traitement. Cette histoire c’est mon rocher de Sisyphe. En ruinant ta vie, je me suis condamné à tenter tant bien que mal de réparer l’irréparable. J’espère que de là où t’es tu peux m’pardonner.
         *** J'essaye de laver ton honneur. #audio laver-honneur #audio sauver-image 8
             Non mais je sais c’que tu penses ! Tu penses que j’essaye juste de sauver mon image. Mais j’me saigne jour et nuit pour que l’histoire ne se souvienne pas de toi comme d’une ordure.
