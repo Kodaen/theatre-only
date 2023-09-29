@@ -58,10 +58,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="37028">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="37028" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -83,7 +83,7 @@
       <workItem from="1695938654499" duration="5868000" />
       <workItem from="1695953222723" duration="1089000" />
       <workItem from="1695973517111" duration="320000" />
-      <workItem from="1695979799925" duration="306000" />
+      <workItem from="1695979799925" duration="2744000" />
     </task>
     <servers />
   </component>
@@ -108,23 +108,6 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Ink/Demos/Basic Demo/Scripts/BasicInkExample.cs</url>
-          <line>149</line>
-          <properties documentPath="C:\Users\Tristan\theatre-only\Assets\Ink\Demos\Basic Demo\Scripts\BasicInkExample.cs" initialLine="149" containingFunctionPresentation="method 'OnClickChoiceButton'">
-            <startOffsets>
-              <option value="4694" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4719" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#UnityEngine.Vector3" memberName="y" />

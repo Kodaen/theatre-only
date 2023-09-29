@@ -16,8 +16,8 @@ VAR colere = false
 == introduction ==
 {Il règne sur le commissariat un silence pesant. Une énorme pile de dossiers couvre presque entièrement ce qui fût un jour un bureau. Ducray est assis derrière, pensif. Absent. | Ducray gît derrière son bureau.} #audio intro-voice
 
-* {alcool_is_visible} Se servir un verre. #audio servir-verre
-    Ducray se sert un verre. #audio se-sert-verre 2 -> introduction
+* {alcool_is_visible} Se servir un verre.
+    Ducray se sert un verre. -> introduction
 //* {nb_drinks == 1} Se resservir un verre.
 //* {nb_drinks == 2} Un petit troisième pour la route.
 
@@ -36,14 +36,14 @@ VAR colere = false
             **** (medaille_argent) La médaille d'argent.
                 Même cette victoire avait un goût amer. Il n'éprouvait aucun plaisir à y repenser. À cause de la piscine, sans doute...
                 ~despair ++
-            **** Refouler le souvenir.
-                /*Il inspire fort*/ Une grande inspiration et le souvenir est déjà loin.
+            **** Refouler le souvenir. #audio refouler-souvenir #audio grande-inspiration 4
+                /*Il inspire fort*/ Une grande inspiration et le souvenir est déjà loin. 
             ---- -> introduction
- * (regarder_bureau) Poser son regard sur le bureau. #DMX /1 100
-    Derrière l'énorme tas de dossiers, on distingue à peine le bois du bureau. Du chêne. Le bureau de Ducray est à l'image de sa vie : bordélique. Chaotique. Abîmé. En instance de divorce.
-    ** (fouiller_bureau) Fouiller parmi les dossiers.
+ * (regarder_bureau) /Poser son regard sur le bureau. #audio poser-regard #audio derriere-tas 3 #DMX /1 100 
+    Derrière l'énorme tas de dossiers, on distingue à peine le bois du bureau. Du chêne. Le bureau de Ducray est à l'image de sa vie : bordélique. Chaotique. Abîmé. En instance de divorce. 
+    ** (fouiller_bureau) Fouiller parmi les dossiers. #audio fouiller-dossier 3 #audio dossier-escalade
         /* Il fouille dans les dossiers*/ {Les dossiers s'escaladent les uns les autres. Derrière cette apparent chaos se cache en réalité une logique implacable : il y a les dossiers, et il y a le dossier. | }
-        *** Consulter les dossiers.
+        *** Consulter les dossiers. 
             Ducray toise les dossiers. Du boulot. Il déteste le boulot. Du moins, il déteste son boulot. Ceux des autres n'ont pas l'air si mal, en comparaison... Ces derniers mois, les affaires s'accumulent. La tension politique est à son comble, les attentats se multiplient.
             **** (attentats_politiques) Les attentats.
                 Les travailleurs sont très en colère. D'abord, c'était contre ce qu'ils appellaient le système. Désormais, leur colère semble se porter sur des individus. Des patrons, des hommes politiques. Des riches... Ducray ne les aime pas trop, ces travailleurs. Trop politiques à son goût. Les riches, il les déteste carrément. Ducray n'aime pas grand monde. -> fouiller_bureau
@@ -107,20 +107,20 @@ VAR colere = false
     ** (ouvrir_carton_1) Ouvrir le carton sous le bureau.
         ~alcool_is_visible = true
         Ducray ouvre le carton sous le bureau. Il a fait ce geste mille fois, un million de fois. Au début, un sentiment de honte l'accompagnait. Plus maintenant. /*Il sort une bouteille d'alcool et la pose sur le bureau*/
-        *** Se servir un verre. #audio servir-verre
+        *** Se servir un verre.
             Ducray regarde autour de lui. Le seul récipient qu'il trouve est une tasse, à moitié pleine.
             **** Inspecter la tasse.
                 Un mélange non identifié gît au fond de la tasse. Depuis combien de temps ? Il ne le sait pas.
                 ***** Jeter le liquide.
                     /*Verse le liquide noir dans la poubelle et repose sa tasse sur le bureau.*/ Si Ducray voulait se tuer, il s'y prendrait autrement.
-                    ****** Se servir un verre. #audio servir-verre
+                    ****** Se servir un verre.
                         -> premier_verre_1
                     ****** Rester sobre.
                         -> rester_sobre_1
                 ***** Santé ! (Boire le liquide)
                     /* Il boit la tasse */ L’entièreté de son corps se froisse. Il vient d’expérimenter avec beaucoup d’âpreté le baiser d’une fosse septique.
-                    ****** (premier_verre_1) Se servir un verre. #audio servir-verre
-                        ~nb_drinks ++/* Ducray se sert un verre */
+                    ****** (premier_verre_1) Se servir un verre.
+                        ~nb_drinks ++/* Ducray se sert un verre */ 
                         Le liquide ambré se déverse en cascade dans la gorge usée du commissaire. Tout à coup, les violons s’accordent. C’est un orchestre qui se met en marche. Cette masse de calcaire, ce flic, se contorsionne de plaisir. La sueur émane de son front plissé. Ses synapses sont en ébullition, son sang court à toute vitesse dans ses veines, ses tempes palpites. Ses lèvres, immédiatement asséchées par l’alcool restent entrouvertes, elles en redemandent. Muettes, elles implorent. 
                         ******* (choix_consulter_dossier) Le dossier fait face à Ducray.
                             ******** Consulter le dossier. -> consulter_dossier
@@ -229,20 +229,20 @@ Ducray gît derrière son bureau.
 * {!alcool_is_visible} Ouvrir le carton sous le bureau.
     ~alcool_is_visible = true
     Ducray ouvre le carton sous le bureau. Il a fait ce geste mille fois, un million de fois. Au début, un sentiment de honte l'accompagnait. Plus maintenant. /*Il sort une bouteille d'alcool et la pose sur le bureau*/
-    ** (servir_premier_verre) Se servir un verre. #audio servir-verre
+    ** (servir_premier_verre) Se servir un verre.
         Ducray regarde autour de lui. Le seul récipient qu'il trouve est une tasse, à moitié pleine.
         *** Inspecter la tasse.
             Un mélange non identifié gît au fond de la tasse. Depuis combien de temps ? Il ne le sait pas.
             **** Jeter le liquide.
                 /*Verse le liquide noir dans la poubelle et repose sa tasse sur le bureau.*/ Si Ducray voulait se tuer, il s'y prendrait autrement.
-                ***** Se servir un verre. #audio servir-verre
+                ***** Se servir un verre.
                     -> premier_verre_2
                 ***** Rester sobre.
                     -> rester_sobre_2
             **** Santé ! (Boire le liquide)
                 /* Il boit la tasse */ L’entièreté de son corps se froisse. Il vient d’expérimenter avec beaucoup d’âpreté le baiser d’une fosse septique.
-                ***** (premier_verre_2) Se servir un verre. #audio servir-verre
-                    ~nb_drinks ++/* Ducray se sert un verre */
+                ***** (premier_verre_2) Se servir un verre.
+                    ~nb_drinks ++/* Ducray se sert un verre */ 
                     Le liquide ambré se déverse en cascade dans la gorge usée du commissaire. Tout à coup, les violons s’accordent. C’est un orchestre qui se met en marche. Cette masse de calcaire, ce flic, se contorsionne de plaisir. La sueur émane de son front plissé. Ses synapses sont en ébullition, son sang court à toute vitesse dans ses veines, ses tempes palpites. Ses lèvres, immédiatement asséchées par l’alcool restent entrouvertes, elles en redemandent. Muettes, elles implorent.  -> dossier_lu
                 ***** Rester sobre.
                     -> rester_sobre_2
@@ -261,7 +261,7 @@ Ducray gît derrière son bureau.
     -> arroser_plante
 + Faire de l'ordre dans le bureau (et dans sa tête).
     -> ranger_bureau
-* Allumer le poste radio. /* TODO: allumer radio son peace */
+* Allumer le poste radio.
     -> allumer_radio
 + Faire une partie de mini-golf.
 -> mini_golf
@@ -276,7 +276,7 @@ Ducray gît derrière son bureau.
     Le liquide ambré se déverse en cascade dans la gorge usée du commissaire. Tout à coup, les violons s’accordent. C’est un orchestre qui se met en marche. Cette masse de calcaire, ce flic, se contorsionne de plaisir. La sueur émane de son front plissé. Ses synapses sont en ébullition, son sang court à toute vitesse dans ses veines, ses tempes palpites. Ses lèvres, immédiatement asséchées par l’alcool restent entrouvertes, elles en redemandent. Muettes, elles implorent.  -> dossier_lu
 
 = ranger_bureau
-* Aérer la pièce. /* TODO: son manif 10 secs faible niveau sonore pas en boucle */
+* Aérer la pièce.
 ~fenetre_ouverte = true
 /* Ducray ouvre la fenêtre du fond de la piece. */
 * Rafraîchir la pièce.
@@ -312,7 +312,7 @@ Ducray gît derrière son bureau.
 
 = allumer_radio
 /* Ducray allume la radio */ Peace Piece, Bill evans. C'était leur morceau préféré. Comme si Ducray n'était pas assez déprimé...
-+ Couper le poste. /* TODO: couper radio */
++ Couper le poste.
 -> dossier_lu
 * Danser tristement.
 /* Ducray se met à danser */
@@ -439,7 +439,6 @@ Si Ducray continue de boire, il n'y aurait pas de retour en arrière. Sa nuit va
 + {nb_drinks >= 6} Sombrer. -> grand_final
 
 = grand_final
-Une sonnerie de téléphone retentit. #audio sonnerie-tel 40 /* TODO: jouer x100 jusque click boutton decrocher */
 /* Ducray s'endort. Rideau. Coup de téléphone qui retentit. Le rideau s'ouvre à nouveau. Ducray dort. La sonnerie finit par le réveiller. Un téléphone pend devant lui. Peut-être qu'une personne est assise sur la chaise (en mode chaise électrique). Ducray décroche le téléphone pendu. La personne assise décroche l'autre téléphone.*/
 * Décrocher.  #DMX /1 100 #DMX /3 255 true #video
     ** Allô ?
