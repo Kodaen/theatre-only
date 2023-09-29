@@ -267,7 +267,7 @@ Ducray gît derrière son bureau.
 -> mini_golf
 * {fenetre_ouverte} En finir. (Se défenestrer)
 /* Ducray se dirige vers la fenêtre ouverte. Il hésite. */ Ducray, en regardant en bas, avait l'impression que ses problèmes diminuaient... Le grand saut n'est peut-être pas pour aujourd'hui, finalement... -> dossier_lu
-+ {nb_drinks >= 3} Boire sérieusement. (Jusqu'à ce qu'il fasse tout noir)
++ {nb_drinks >= 3} Boire sérieusement. (Jusqu'à ce qu'il fasse tout noir) #audio boire-retour /* TODO: test */
 -> alcool_final_message
 
 = premier_verre_2
@@ -286,13 +286,13 @@ Ducray gît derrière son bureau.
 * Ranger la chaise.
 * Éteindre la lampe.
     Sans lampe, Ducray ne voit plus rien. Logique.
-    ** Allumer la lampe à nouveau.
+    ** Allumer la lampe à nouveau. #audio allumer-lampe-encore #audio lumiere-soit-fut 8
         Ducray dit : "Que la lumière soit", et la lumière fût.
         -> ranger_bureau
 /* Ducray range la deuxième chaise. */
-* Réagencer le bureau.
+* Réagencer le bureau. #audio reagencer-bureau #audio bureau-3am 5
 /* Ducray traine le bureau ailleurs. Il se pose pour regarder si c'est mieux, hésite. Le re-change de place. Hésite à nouveau mais semble convaincu. */ Réagencer le bureau à 3 heure du matin, en voilà une bonne idée.
-* {colere} Faire de l'ordre dans les dossier. (De manière musclée)
+* {colere} Faire de l'ordre dans les dossier. (De manière musclée) #audio ordre-dossiers
     ~fenetre_ouverte = true
 /* Ducray balance les dossier par terre.*/
 + Laisser tomber.
@@ -301,35 +301,35 @@ Ducray gît derrière son bureau.
 
 = mini_golf
 /* Ducray froisse l'un de ses dossiers et en fait une boule de papier. */
-+ Taper la boule de papier.
++ Taper la boule de papier. #audio taper-boule-papier
 /* Ducray tape la boule de papier pour s'amuser. */
 -> mini_golf
-* {colere} Se servir du meuble comme d'une balle.
+* {colere} Se servir du meuble comme d'une balle. #audio meuble-balle
 /* Ducray utilise le balais pour fracasser le meuble. */
 -> mini_golf
-+ Fini de s'amuser !
++ Fini de s'amuser ! #audio finit-amuser
 -> dossier_lu
 
 = allumer_radio
-/* Ducray allume la radio */ Peace Piece, Bill evans. C'était leur morceau préféré. Comme si Ducray n'était pas assez déprimé...
+/* Ducray allume la radio */ Peace Piece, Bill evans. C'était leur morceau préféré. Comme si Ducray n'était pas assez déprimé... #audio peace-piece
 + Couper le poste.
 -> dossier_lu
-* Danser tristement.
+* Danser tristement. #audio danser
 /* Ducray se met à danser */
-    ** Couper le poste.
+    ** Couper le poste. #audio couper-poste
         -> dossier_lu
 
 = second_verre
 ~nb_drinks ++
-Le commissaire n’était pas en mesure d’imaginer que la seconde gorgée puisse être encore plus exaltante que la première. Cela dépasse largement les maigres capacités de son esprit fatigué. Tandis que sa vue s’embrume, tandis que ses genoux s’engourdissent, il se laisse transporter.
-    * Se remettre au travail.
+Le commissaire n’était pas en mesure d’imaginer que la seconde gorgée puisse être encore plus exaltante que la première. Cela dépasse largement les maigres capacités de son esprit fatigué. Tandis que sa vue s’embrume, tandis que ses genoux s’engourdissent, il se laisse transporter. #audio seconde-gorgee
+    * Se remettre au travail. #audio remettre-travail
         -> dossier_lu
-    * Un petit troisième.
+    * Un petit troisième. #audio troisieme
         -> troisieme_verre
 
 = troisieme_verre
 ~nb_drinks ++/* Ducray engloutit un nouveau verre. */ 
-Ça fait du bien par où ça passe. -> dossier_lu
+Ça fait du bien par où ça passe. -> dossier_lu #audio du-bien
 
 = telephone_2
 /* Ducray se dirige vers le téléphone */
@@ -422,21 +422,21 @@ Le commissaire n’était pas en mesure d’imaginer que la seconde gorgée puis
 
 = alcool_final_message
 Si Ducray continue de boire, il n'y aurait pas de retour en arrière. Sa nuit va s'arrêter. Ou commencer, selon comment on voit les choses... Il hésite...
-    + Cesser de boire.
+    + Cesser de boire. #audio cesser-boire
         -> dossier_lu
-    + Je veux que tout s'éteigne. (Boire jusqu'à s'éffondrer)
+    + Je veux que tout s'éteigne. (Boire jusqu'à s'éffondrer) #audio tout-s-eteigne
         -> alcool_final
 = alcool_final
-+ {nb_drinks < 6} Boire.
++ {nb_drinks < 6} Boire. #audio boire
 ~nb_drinks ++
 -> alcool_final
-+ {nb_drinks < 6} Boire.
++ {nb_drinks < 6} Boire. #audio boire
 ~nb_drinks ++
 -> alcool_final
-+ {nb_drinks < 6} Boire.
++ {nb_drinks < 6} Boire. #audio boire
 ~nb_drinks ++
 -> alcool_final
-+ {nb_drinks >= 6} Sombrer. -> grand_final
++ {nb_drinks >= 6} Sombrer. -> grand_final /* TODO: sombrer HS */
 
 = grand_final
 /* Ducray s'endort. Rideau. Coup de téléphone qui retentit. Le rideau s'ouvre à nouveau. Ducray dort. La sonnerie finit par le réveiller. Un téléphone pend devant lui. Peut-être qu'une personne est assise sur la chaise (en mode chaise électrique). Ducray décroche le téléphone pendu. La personne assise décroche l'autre téléphone.*/
