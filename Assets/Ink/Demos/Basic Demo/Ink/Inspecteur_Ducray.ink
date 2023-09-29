@@ -24,7 +24,7 @@ VAR colere = false
 * {introduction == 1} Bâiller. #audio bailler #audio bailler-personne 1
     Ducray se met à bâiller exagérément. Si quelqu'un d'autre avait été présent, il aurait sans doute bâillé à son tour. Mais il n'y a personne.
     -> introduction
-* Regarder l'heure. #DMX /1 100 #DMX /3 255 #audio heure #audio silence-com 2 /* TODO: heure mauvaise cut ou pas  */
+* Regarder l'heure. #DMX /1 100 #DMX /3 255 #audio heure #audio silence-com 2 #audio oeil-horloge 17 /* TODO: heure mauvaise cut ou pas + 17 ok ou pas  */
     À en juger par le silence qui règne au commissariat, il est tard. À cette heure de la nuit, on ne trouve plus que ceux qui bossent trop, et ceux qui ne bossent pas assez. Difficile de dire à quelle catégorie le commissaire Ducray appartient. /*Il regarde l'horloge*/ Il jette un oeil sur l'horloge. Il devrait être rentré depuis longtemps. 02h51. À ce stade, c'est plutôt l'heure qui vous regarde que l'inverse. L'heure vous juge.
     ** Laisser tomber.
         -> introduction
