@@ -10,7 +10,7 @@ VAR fenetre_ouverte = false
 VAR colere = false
 
 // Le jeu démarre sur une introduction présentant la pièce, ainsi que les props qui sont disponibles immédiatement.
--> dossier_lu.grand_final
+-> introduction
 
 // SCENE PREMIERE //
 == introduction ==
@@ -459,11 +459,11 @@ Une sonnerie de téléphone retentit. #audio sonnerie-tel 40 /* TODO: jouer x100
         Tu sais, j’suis désolé que tu ais reçu pareil traitement. Cette histoire c’est mon rocher de Sisyphe. En ruinant ta vie, je me suis condamné à tenter tant bien que mal de réparer l’irréparable. J’espère que de là où t’es tu peux m’pardonner.
         *** J'essaye de laver ton honneur.
             Non mais je sais c’que tu penses ! Tu penses que j’essaye juste de sauver mon image. Mais j’me saigne jour et nuit pour que l’histoire ne se souvienne pas de toi comme d’une ordure.
-        *** Je souffre...
+        *** Je souffre... #audio je-souffre #audio souffrance 3
             L'abîme de souffrances qui compose ma vie ne cesse d’engloutir tout ce qui m’entoure.
-    ** L'odeur d'amande.
+    ** L'odeur d'amande. #audio amende #audio lait-amende 3 
         Je n’ai pas oublié l’amande, je ne l’oublie jamais, j’y pense tout le temps. J’peux même plus mettre de lait d’amande dans mon café, il me sort par les yeux.
-        *** Tous des incompétents.
+        *** Tous des incompétents. #audio incompetents #audio enfoires 5
             Tous ces enfoirés déploient un effort phénoménal pour ignorer ce détail. Le climat politique n’y est pas favorable. Des années qu’il ne l’a pas été.
         *** Je devrais en finir. #audio en-finir #audio cyanure 5
             Le cyanure... le cyanure... ça règlerait bon nombre de mes problèmes... #audio cyanure /* TODO: how to play this audio? */
