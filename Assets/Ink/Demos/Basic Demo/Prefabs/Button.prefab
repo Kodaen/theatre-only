@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 11455116}
   - component: {fileID: 11420252}
   - component: {fileID: 11438922}
+  - component: {fileID: 6180576103175945854}
+  - component: {fileID: 7970078435127791087}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -30,7 +32,7 @@ RectTransform:
   m_GameObject: {fileID: 105558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2768853, y: 1.2768853, z: 1.2768853}
+  m_LocalScale: {x: 1.7732106, y: 1.7732106, z: 1.7732106}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 22447082}
@@ -63,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+  m_Color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -164,6 +166,30 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &6180576103175945854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4151b9fd9eb94b47ac35a957ef46231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &7970078435127791087
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105558}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &134058
 GameObject:
   m_ObjectHideFlags: 0

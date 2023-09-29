@@ -35,6 +35,11 @@ public class BasicInkExample : MonoBehaviour
         // Remove the default message
         RemoveChildren();
         StartStory();
+        
+        for (int i=0; i < Display.displays.Length; i++){
+            Display.displays[i].Activate();
+            print("Display : " + i );
+        }
     }
 
     // Creates a new Story object with the compiled story which we can then play!
@@ -103,6 +108,9 @@ public class BasicInkExample : MonoBehaviour
                     OnClickChoiceButton(choice);
                 });
             }
+            // Disable vertical layout after few seconds (because we need it to order
+            // the buttons correctly, then we remove it to make the floating effect)
+            StartCoroutine(disableVerticalLayout());
         }
         // If we've read all the content and there's no choices, the story is finished!
         else
@@ -115,12 +123,25 @@ public class BasicInkExample : MonoBehaviour
         }
     }
 
+       
+    IEnumerator disableVerticalLayout()
+    {
+        yield return new WaitForSeconds(0.3f);
+        VerticalLayoutGroup verticalLayoutGroup = canvas.GetComponent<VerticalLayoutGroup>();
+        verticalLayoutGroup.enabled = false;
+    }
+
+    
     // When we click the choice button, tell the story to choose that choice!
     void OnClickChoiceButton(Choice choice)
     {
         story.ChooseChoiceIndex(choice.index);
         RefreshView();
 
+        // Put the vectical layout back to normal
+        VerticalLayoutGroup verticalLayoutGroup = canvas.GetComponent<VerticalLayoutGroup>();
+        verticalLayoutGroup.enabled = true;
+        
         // TODO: Add all 200+ tags.
         if (choice.tags == null)
         {
@@ -154,7 +175,7 @@ public class BasicInkExample : MonoBehaviour
                 string[] tagData2 = choice.tags?[1].Split(' ');
                 string channel2 = tagData2[1];
                 int brightness2 = int.Parse(tagData2[2]);
-
+            
                 // blink should be set to true, skip value check
                 // not possible to have optional parameters but we should only blink once at the end.
                 bool blink = tagData2.Length == 4;
@@ -173,6 +194,7 @@ public class BasicInkExample : MonoBehaviour
                 }
             }
         }
+        
     }
 
     // TODO: Not working.
