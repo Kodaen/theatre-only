@@ -36,10 +36,12 @@ public class BasicInkExample : MonoBehaviour
         RemoveChildren();
         StartStory();
         
+        // Activate both game screen on computeur and projector
         for (int i=0; i < Display.displays.Length; i++){
             Display.displays[i].Activate();
-            print("Display : " + i );
         }
+
+        videoCanvas.enabled = false;
     }
 
     // Creates a new Story object with the compiled story which we can then play!
@@ -150,6 +152,9 @@ public class BasicInkExample : MonoBehaviour
 
         string[] tagData = choice.tags?[0].Split(' ');
         string eventType = tagData[0];
+        
+
+        
         if (eventType == "audio")
         {
             // Assume there is just one tag per choice and the second splitted value is the file to play.
@@ -176,6 +181,8 @@ public class BasicInkExample : MonoBehaviour
                 string channel2 = tagData2[1];
                 int brightness2 = int.Parse(tagData2[2]);
             
+          
+                
                 // blink should be set to true, skip value check
                 // not possible to have optional parameters but we should only blink once at the end.
                 bool blink = tagData2.Length == 4;
@@ -194,7 +201,22 @@ public class BasicInkExample : MonoBehaviour
                 }
             }
         }
-        
+
+        if (choice.tags.Count >= 3)
+        {
+            for (int i = 0; i < choice.tags.Count; i++)
+            {
+                if (choice.tags[i] == "video")
+                {
+                    Debug.Log("video");
+                    videoCanvas.enabled = true;
+                }
+            }
+ 
+        }
+
+
+
     }
 
     // TODO: Not working.
@@ -286,6 +308,9 @@ public class BasicInkExample : MonoBehaviour
 
     [SerializeField]
     private Canvas canvas = null;
+    
+    [SerializeField]
+    private Canvas videoCanvas = null;
 
     // UI Prefabs
     [SerializeField]
