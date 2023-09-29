@@ -21,10 +21,10 @@ VAR colere = false
 //* {nb_drinks == 1} Se resservir un verre.
 //* {nb_drinks == 2} Un petit troisième pour la route.
 
-* {introduction == 1} Bâiller. #audio bailler
+* {introduction == 1} Bâiller. #audio bailler #audio bailler-personne 1
     Ducray se met à bâiller exagérément. Si quelqu'un d'autre avait été présent, il aurait sans doute bâillé à son tour. Mais il n'y a personne.
     -> introduction
-* Regarder l'heure. #DMX /1 100 #DMX /3 255
+* Regarder l'heure. #DMX /1 100 #DMX /3 255 #audio heure #audio silence-com 2 /* TODO: heure mauvaise cut ou pas  */
     À en juger par le silence qui règne au commissariat, il est tard. À cette heure de la nuit, on ne trouve plus que ceux qui bossent trop, et ceux qui ne bossent pas assez. Difficile de dire à quelle catégorie le commissaire Ducray appartient. /*Il regarde l'horloge*/ Il jette un oeil sur l'horloge. Il devrait être rentré depuis longtemps. 02h51. À ce stade, c'est plutôt l'heure qui vous regarde que l'inverse. L'heure vous juge.
     ** Laisser tomber.
         -> introduction
@@ -457,7 +457,7 @@ Une sonnerie de téléphone retentit. #audio sonnerie-tel 40 /* TODO: jouer x100
     -- Enfin bon...
     ** Je suis désolé.
         Tu sais, j’suis désolé que tu ais reçu pareil traitement. Cette histoire c’est mon rocher de Sisyphe. En ruinant ta vie, je me suis condamné à tenter tant bien que mal de réparer l’irréparable. J’espère que de là où t’es tu peux m’pardonner.
-        *** J'essaye de laver ton honneur.
+        *** J'essaye de laver ton honneur. #audio laver-honneur #audio sauver-image 8
             Non mais je sais c’que tu penses ! Tu penses que j’essaye juste de sauver mon image. Mais j’me saigne jour et nuit pour que l’histoire ne se souvienne pas de toi comme d’une ordure.
         *** Je souffre... #audio je-souffre #audio souffrance 3
             L'abîme de souffrances qui compose ma vie ne cesse d’engloutir tout ce qui m’entoure.
