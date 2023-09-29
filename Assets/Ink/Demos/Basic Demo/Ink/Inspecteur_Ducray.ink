@@ -16,8 +16,8 @@ VAR colere = false
 == introduction ==
 {Il règne sur le commissariat un silence pesant. Une énorme pile de dossiers couvre presque entièrement ce qui fût un jour un bureau. Ducray est assis derrière, pensif. Absent. | Ducray gît derrière son bureau.} #audio intro-voice
 
-* {alcool_is_visible} Se servir un verre.
-    Ducray se sert un verre. -> introduction
+* {alcool_is_visible} Se servir un verre. #audio servir-verre
+    Ducray se sert un verre. #audio se-sert-verre 2 -> introduction
 //* {nb_drinks == 1} Se resservir un verre.
 //* {nb_drinks == 2} Un petit troisième pour la route.
 
@@ -107,20 +107,20 @@ VAR colere = false
     ** (ouvrir_carton_1) Ouvrir le carton sous le bureau.
         ~alcool_is_visible = true
         Ducray ouvre le carton sous le bureau. Il a fait ce geste mille fois, un million de fois. Au début, un sentiment de honte l'accompagnait. Plus maintenant. /*Il sort une bouteille d'alcool et la pose sur le bureau*/
-        *** Se servir un verre.
+        *** Se servir un verre. #audio servir-verre
             Ducray regarde autour de lui. Le seul récipient qu'il trouve est une tasse, à moitié pleine.
             **** Inspecter la tasse.
                 Un mélange non identifié gît au fond de la tasse. Depuis combien de temps ? Il ne le sait pas.
                 ***** Jeter le liquide.
                     /*Verse le liquide noir dans la poubelle et repose sa tasse sur le bureau.*/ Si Ducray voulait se tuer, il s'y prendrait autrement.
-                    ****** Se servir un verre.
+                    ****** Se servir un verre. #audio servir-verre
                         -> premier_verre_1
                     ****** Rester sobre.
                         -> rester_sobre_1
                 ***** Santé ! (Boire le liquide)
                     /* Il boit la tasse */ L’entièreté de son corps se froisse. Il vient d’expérimenter avec beaucoup d’âpreté le baiser d’une fosse septique.
-                    ****** (premier_verre_1) Se servir un verre.
-                        ~nb_drinks ++/* Ducray se sert un verre */ 
+                    ****** (premier_verre_1) Se servir un verre. #audio servir-verre
+                        ~nb_drinks ++/* Ducray se sert un verre */
                         Le liquide ambré se déverse en cascade dans la gorge usée du commissaire. Tout à coup, les violons s’accordent. C’est un orchestre qui se met en marche. Cette masse de calcaire, ce flic, se contorsionne de plaisir. La sueur émane de son front plissé. Ses synapses sont en ébullition, son sang court à toute vitesse dans ses veines, ses tempes palpites. Ses lèvres, immédiatement asséchées par l’alcool restent entrouvertes, elles en redemandent. Muettes, elles implorent. 
                         ******* (choix_consulter_dossier) Le dossier fait face à Ducray.
                             ******** Consulter le dossier. -> consulter_dossier
@@ -229,20 +229,20 @@ Ducray gît derrière son bureau.
 * {!alcool_is_visible} Ouvrir le carton sous le bureau.
     ~alcool_is_visible = true
     Ducray ouvre le carton sous le bureau. Il a fait ce geste mille fois, un million de fois. Au début, un sentiment de honte l'accompagnait. Plus maintenant. /*Il sort une bouteille d'alcool et la pose sur le bureau*/
-    ** (servir_premier_verre) Se servir un verre.
+    ** (servir_premier_verre) Se servir un verre. #audio servir-verre
         Ducray regarde autour de lui. Le seul récipient qu'il trouve est une tasse, à moitié pleine.
         *** Inspecter la tasse.
             Un mélange non identifié gît au fond de la tasse. Depuis combien de temps ? Il ne le sait pas.
             **** Jeter le liquide.
                 /*Verse le liquide noir dans la poubelle et repose sa tasse sur le bureau.*/ Si Ducray voulait se tuer, il s'y prendrait autrement.
-                ***** Se servir un verre.
+                ***** Se servir un verre. #audio servir-verre
                     -> premier_verre_2
                 ***** Rester sobre.
                     -> rester_sobre_2
             **** Santé ! (Boire le liquide)
                 /* Il boit la tasse */ L’entièreté de son corps se froisse. Il vient d’expérimenter avec beaucoup d’âpreté le baiser d’une fosse septique.
-                ***** (premier_verre_2) Se servir un verre.
-                    ~nb_drinks ++/* Ducray se sert un verre */ 
+                ***** (premier_verre_2) Se servir un verre. #audio servir-verre
+                    ~nb_drinks ++/* Ducray se sert un verre */
                     Le liquide ambré se déverse en cascade dans la gorge usée du commissaire. Tout à coup, les violons s’accordent. C’est un orchestre qui se met en marche. Cette masse de calcaire, ce flic, se contorsionne de plaisir. La sueur émane de son front plissé. Ses synapses sont en ébullition, son sang court à toute vitesse dans ses veines, ses tempes palpites. Ses lèvres, immédiatement asséchées par l’alcool restent entrouvertes, elles en redemandent. Muettes, elles implorent.  -> dossier_lu
                 ***** Rester sobre.
                     -> rester_sobre_2

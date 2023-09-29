@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using extOSC;
 using Ink.Runtime;
@@ -20,7 +21,7 @@ public class BasicInkExample : MonoBehaviour
 
     public List<AudioClip> audioClipsList;
 
-    public List<string> audioClipsPlayed;
+    private List<string> audioClipsPlayed = new List<string>();
 
     void Awake()
     {
@@ -75,8 +76,16 @@ public class BasicInkExample : MonoBehaviour
             string audioClipName = tagData[1];
             if (eventType == "audio" && !audioClipsPlayed.Contains(audioClipName))
             {
+                // TODO: Refactor duplicated code.
                 // Assume there is just one tag per choice and the second splitted value is the file to play.
-                PlaySoundForChoice(audioClipName);
+                int seconds = 0;
+                if (tagData.Length == 3)
+                {
+                    seconds = int.Parse(tagData[2]);
+                }
+
+                PlaySoundForChoice(audioClipName, seconds);
+
                 audioClipsPlayed.Add(audioClipName);
             }
         }
@@ -124,7 +133,13 @@ public class BasicInkExample : MonoBehaviour
         {
             // Assume there is just one tag per choice and the second splitted value is the file to play.
             string audioClipName = tagData[1];
-            PlaySoundForChoice(audioClipName);
+            int seconds = 0;
+            if (tagData.Length == 3)
+            {
+                seconds = int.Parse(tagData[2]);
+            }
+
+            PlaySoundForChoice(audioClipName, seconds);
         }
         else if (eventType == "DMX")
         {
@@ -149,8 +164,7 @@ public class BasicInkExample : MonoBehaviour
                     // TODO: Replace DMX with audio at the begining after test.
                     for (int i = 0; i < 30; i++)
                     {
-                        SendDMXMessage(i % 2 == 0 ? "/1" : "/3", i % 2 == 0 ? 255 : 0);
-                        SendDMXMessage(i % 2 == 0 ? "/3" : "/1", i % 2 == 0 ? 0 : 255);
+                        StartCoroutine(Blink(i));
                     }
                 }
                 else
@@ -161,7 +175,16 @@ public class BasicInkExample : MonoBehaviour
         }
     }
 
-    void PlaySoundForChoice(string audioClipName)
+    // TODO: Not working.
+    IEnumerator Blink(int i)
+    {
+        yield return new WaitForSeconds(5);
+
+        SendDMXMessage(i % 2 == 0 ? "/1" : "/3", i % 2 == 0 ? 255 : 0);
+        SendDMXMessage(i % 2 == 0 ? "/3" : "/1", i % 2 == 0 ? 0 : 255);
+    }
+
+    void PlaySoundForChoice(string audioClipName, int seconds = 0)
     {
         //Ensure voices don't overlap if the player decides to click before previous voice line is playing.
         audioSource.Stop();
@@ -169,12 +192,26 @@ public class BasicInkExample : MonoBehaviour
         AudioClip value = null;
         if (audioClips.TryGetValue(audioClipName, out value))
         {
-            audioSource.PlayOneShot(audioClips[audioClipName]);
+            if (seconds > 0)
+            {
+                StartCoroutine(WaitToPlay(audioClipName, seconds));
+            }
+            else
+            {
+                audioSource.PlayOneShot(audioClips[audioClipName]);
+            }
         }
         else
         {
             Debug.Log("Audio clip with Key = \"" + audioClipName + "\" is not found.");
         }
+    }
+
+    IEnumerator WaitToPlay(string audioClipName, int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        audioSource.PlayOneShot(audioClips[audioClipName]);
     }
 
     void SendDMXMessage(string channel, int brightness)
