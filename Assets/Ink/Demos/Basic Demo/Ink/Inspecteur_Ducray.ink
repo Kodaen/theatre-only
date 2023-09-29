@@ -61,22 +61,22 @@ VAR colere = false
                         Des empreintes ont été retrouvées à divers endroits du corps. Le suspect s'est défendu en expliquant qu'il avait tenté de lui faire un massage cardiaque. Sous la panique, il n'a pas pensé à laisser le corps en état. -> details_suspects_suite
                     ****** La clé. #audio la-clef #audio acces-a-divers-clefs 3
                         Son métier lui donnait accès à diverses clés, et il pouvait entrer dans la propriété à sa guise. C'est d'ailleurs comme ça qu'il a trouvé la victime. -> details_suspects_suite
-                    ****** Sa relation avec la victime. #audio relation-avec-la-victime
+                    ****** Sa relation avec la victime. #audio relation-avec-la-victime #audio elle-etait-son-employeur 5
                         Elle était son employeur. Il était son employé. Arthur a toujours nié avoir un quelconque grief à son égard. -> details_suspects_suite
-                    ****** Le mobile.
+                    ****** Le mobile. #audio le-mobile #audio elle-etait-richissime 4
                         Elle était richissime. Il était pauvre. Pourtant, personne n'a jamais pensé qu'il ait pu en vouloir à son argent. D'autant que rien n'a été dérobé. En revanche... Il était politisé. Encarté. M.T.S.
-                        ******* (MTS) Le M.T.S.
+                        ******* (MTS) Le M.T.S. #audio le-mts #audio le-mouvement 4
                             Le Mouvement des Travailleurs et Travailleuses Solidaires. Un mouvement citoyen sans représentants, très à gauche de l'échiquier politique. Naît lors des premières grèves générales, il n'a cessé de prendre de l'ampleur avec la montée des mouvements sociaux. -> details_suspects_suite
                 ****** {CHOICE_COUNT() <= 3} Poursuivre la lecture du dossier. -> consulter_dossier
-            **** (rapport_autopsie) Le rapport d'autopsie.
+            **** (rapport_autopsie) Le rapport d'autopsie. #audio rapport-autopsie #audio simulacre-autopsie 4
                 {Un rapport d'autopsie. Ou plutôt un simulacre d'autopsie. Tout est allé très vite. La demande venait d'en haut. L'histoire faisait déjà beaucoup trop de bruit... |}
-                ***** Lire le rapport d'autopsie.
+                ***** Lire le rapport d'autopsie. #audio lire-rapport-autopsie 
                     La victime avait vingt-six ans au moment de la mort. La mort est survenue entre 18h30 et 19h00. Autrement dit, elle a pu mourir avant qu'Arthur ne la trouve, autant que de ses mains. Aucune analyse toxicologique n'a été requise. L'affaire a été expédiée. Présence d'eau dans les poumons. Noyade avérée. À part ça, aucune trace de lutte. Pas de contusions, pas de marques ni blessure. Un corps parfait. Neuf. Celui d'une personne qui n'a jamais eu à l'user. Un corps de riche. -> consulter_dossier
-                ***** Une demande venue d'en haut.
+                ***** Une demande venue d'en haut. #audio demande-venue-haut #audio c-ce-qu-on-dit 3
                     C'est ce qu'on dit, dans les couloirs du commissariat. Difficile de dire de quelle altitude on parle... -> rapport_autopsie
-            **** {CHOICE_COUNT() == 0} Un dernier détail.
+            **** {CHOICE_COUNT() == 0} Un dernier détail. #audio dernier-detail #audio il-y-a-detail 3
                 Il y a un détail dont le dossier ne fait pas mention. Ducray s'en souvient car c'est lui qui avait interrogé Arthur Vasseur, le jour où ce dernier avait appelé la police après avoir découvert le corps. Si le dossier n'en parle pas, c'est parce qu'on a dû juger qu'il était trop insignifiant pour figurer dans le dossier. Et pourtant...
-                ***** Pourtant..?
+                ***** Pourtant..? #audio pourtant
                     {Pourtant ce détail, pour Ducray, fait toute la différence. Il l'obsède. Une simple odeur. À moins que Ducray ait simplement perdu les pédales... |}
                     ****** (odeur_amande) Une odeur ?
                         Lorsque Arthur a prodigué à la victime les premiers soins, il a précisé avoir senti une légère odeur d'amande.
