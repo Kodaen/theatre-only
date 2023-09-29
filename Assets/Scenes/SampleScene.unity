@@ -573,6 +573,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fbb522f41f3726541ab0b3acb382b485, type: 3}
   - {fileID: 8300000, guid: a57f2b3d7467de44dad6f283580dc86c, type: 3}
   - {fileID: 8300000, guid: 0f7d418c85130d34a9ae25ae4722ac4f, type: 3}
+  - {fileID: 8300000, guid: 162109a29ff742f41a274c25118eaad0, type: 3}
   inkJSONAsset: {fileID: 4900000, guid: 58e2d4885c7ce3f4e86c8cb31bc5f712, type: 3}
   canvas: {fileID: 1940341235}
   textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
@@ -818,7 +819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22481992, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1104.5
+      value: 1453.5001
       objectReference: {fileID: 0}
     - target: {fileID: 22481992, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
       propertyPath: m_SizeDelta.y

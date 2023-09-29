@@ -261,7 +261,7 @@ Ducray gît derrière son bureau.
     -> arroser_plante
 + Faire de l'ordre dans le bureau (et dans sa tête).
     -> ranger_bureau
-* Allumer le poste radio.
+* Allumer le poste radio. /* TODO: allumer radio son peace */
     -> allumer_radio
 + Faire une partie de mini-golf.
 -> mini_golf
@@ -276,7 +276,7 @@ Ducray gît derrière son bureau.
     Le liquide ambré se déverse en cascade dans la gorge usée du commissaire. Tout à coup, les violons s’accordent. C’est un orchestre qui se met en marche. Cette masse de calcaire, ce flic, se contorsionne de plaisir. La sueur émane de son front plissé. Ses synapses sont en ébullition, son sang court à toute vitesse dans ses veines, ses tempes palpites. Ses lèvres, immédiatement asséchées par l’alcool restent entrouvertes, elles en redemandent. Muettes, elles implorent.  -> dossier_lu
 
 = ranger_bureau
-* Aérer la pièce.
+* Aérer la pièce. /* TODO: son manif 10 secs faible niveau sonore pas en boucle */
 ~fenetre_ouverte = true
 /* Ducray ouvre la fenêtre du fond de la piece. */
 * Rafraîchir la pièce.
@@ -312,7 +312,7 @@ Ducray gît derrière son bureau.
 
 = allumer_radio
 /* Ducray allume la radio */ Peace Piece, Bill evans. C'était leur morceau préféré. Comme si Ducray n'était pas assez déprimé...
-+ Couper le poste.
++ Couper le poste. /* TODO: couper radio */
 -> dossier_lu
 * Danser tristement.
 /* Ducray se met à danser */
@@ -439,6 +439,7 @@ Si Ducray continue de boire, il n'y aurait pas de retour en arrière. Sa nuit va
 + {nb_drinks >= 6} Sombrer. -> grand_final
 
 = grand_final
+Une sonnerie de téléphone retentit. #audio sonnerie-tel 40 /* TODO: jouer x100 jusque click boutton decrocher */
 /* Ducray s'endort. Rideau. Coup de téléphone qui retentit. Le rideau s'ouvre à nouveau. Ducray dort. La sonnerie finit par le réveiller. Un téléphone pend devant lui. Peut-être qu'une personne est assise sur la chaise (en mode chaise électrique). Ducray décroche le téléphone pendu. La personne assise décroche l'autre téléphone.*/
 * Décrocher.  #DMX /1 100 #DMX /3 255 true
     ** Allô ?
