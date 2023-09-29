@@ -5,6 +5,7 @@ using extOSC;
 using Ink.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class BasicInkExample : MonoBehaviour
@@ -35,9 +36,10 @@ public class BasicInkExample : MonoBehaviour
         // Remove the default message
         RemoveChildren();
         StartStory();
-        
+
         // Activate both game screen on computeur and projector
-        for (int i=0; i < Display.displays.Length; i++){
+        for (int i = 0; i < Display.displays.Length; i++)
+        {
             Display.displays[i].Activate();
         }
 
@@ -125,7 +127,7 @@ public class BasicInkExample : MonoBehaviour
         }
     }
 
-       
+
     IEnumerator disableVerticalLayout()
     {
         yield return new WaitForSeconds(0.3f);
@@ -133,7 +135,7 @@ public class BasicInkExample : MonoBehaviour
         verticalLayoutGroup.enabled = false;
     }
 
-    
+
     // When we click the choice button, tell the story to choose that choice!
     void OnClickChoiceButton(Choice choice)
     {
@@ -143,18 +145,23 @@ public class BasicInkExample : MonoBehaviour
         // Put the vectical layout back to normal
         VerticalLayoutGroup verticalLayoutGroup = canvas.GetComponent<VerticalLayoutGroup>();
         verticalLayoutGroup.enabled = true;
-        
+
         // TODO: Add all 200+ tags.
         if (choice.tags == null)
         {
             return;
         }
 
-        string[] tagData = choice.tags?[0].Split(' ');
-        string eventType = tagData[0];
-        
+        foreach (var tag in choice.tags)
+        {
+            string[] tagData = tag.Split(' ');
+            HandleTags(choice, tagData);
+        }
+    }
 
-        
+    void HandleTags(Choice choice, string[] tagData)
+    {
+        string eventType = tagData[0];
         if (eventType == "audio")
         {
             // Assume there is just one tag per choice and the second splitted value is the file to play.
@@ -180,9 +187,9 @@ public class BasicInkExample : MonoBehaviour
                 string[] tagData2 = choice.tags?[1].Split(' ');
                 string channel2 = tagData2[1];
                 int brightness2 = int.Parse(tagData2[2]);
-            
-          
-                
+
+
+
                 // blink should be set to true, skip value check
                 // not possible to have optional parameters but we should only blink once at the end.
                 bool blink = tagData2.Length == 4;
@@ -192,7 +199,8 @@ public class BasicInkExample : MonoBehaviour
                     // TODO: Replace DMX with audio at the begining after test.
                     for (int i = 0; i < 30; i++)
                     {
-                        StartCoroutine(Blink(i));
+                        SendDMXMessage("/1", (int)Random.Range(0, 255));
+                        // StartCoroutine(Blink(i));
                     }
                 }
                 else
@@ -201,22 +209,12 @@ public class BasicInkExample : MonoBehaviour
                 }
             }
         }
-
-        if (choice.tags.Count >= 3)
+        else if (eventType == "video")
         {
-            for (int i = 0; i < choice.tags.Count; i++)
-            {
-                if (choice.tags[i] == "video")
-                {
-                    Debug.Log("video");
-                    videoCanvas.enabled = true;
-                }
-            }
- 
+            Debug.Log("video");
+            videoCanvas.enabled = true;
+
         }
-
-
-
     }
 
     // TODO: Not working.
@@ -231,7 +229,7 @@ public class BasicInkExample : MonoBehaviour
     void PlaySoundForChoice(string audioClipName, int seconds = 0)
     {
         //Ensure voices don't overlap if the player decides to click before previous voice line is playing.
-        audioSource.Stop();
+        // audioSource.Stop();
 
         AudioClip value = null;
         if (audioClips.TryGetValue(audioClipName, out value))
@@ -243,6 +241,7 @@ public class BasicInkExample : MonoBehaviour
             else
             {
                 audioSource.PlayOneShot(audioClips[audioClipName]);
+                Debug.Log(audioClipName + "now");
             }
         }
         else
@@ -256,6 +255,7 @@ public class BasicInkExample : MonoBehaviour
         yield return new WaitForSeconds(seconds);
 
         audioSource.PlayOneShot(audioClips[audioClipName]);
+        Debug.Log(audioClipName + "delay");
     }
 
     void SendDMXMessage(string channel, int brightness)
@@ -308,7 +308,7 @@ public class BasicInkExample : MonoBehaviour
 
     [SerializeField]
     private Canvas canvas = null;
-    
+
     [SerializeField]
     private Canvas videoCanvas = null;
 

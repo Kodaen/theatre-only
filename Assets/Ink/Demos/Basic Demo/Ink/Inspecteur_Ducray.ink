@@ -10,7 +10,7 @@ VAR fenetre_ouverte = false
 VAR colere = false
 
 // Le jeu démarre sur une introduction présentant la pièce, ainsi que les props qui sont disponibles immédiatement.
--> introduction
+-> dossier_lu.grand_final
 
 // SCENE PREMIERE //
 == introduction ==
@@ -21,7 +21,7 @@ VAR colere = false
 //* {nb_drinks == 1} Se resservir un verre.
 //* {nb_drinks == 2} Un petit troisième pour la route.
 
-* {introduction == 1} Bâiller. #audio yawn-choice
+* {introduction == 1} Bâiller. #audio bailler
     Ducray se met à bâiller exagérément. Si quelqu'un d'autre avait été présent, il aurait sans doute bâillé à son tour. Mais il n'y a personne.
     -> introduction
 * Regarder l'heure. #DMX /1 100 #DMX /3 255
@@ -465,8 +465,8 @@ Une sonnerie de téléphone retentit. #audio sonnerie-tel 40 /* TODO: jouer x100
         Je n’ai pas oublié l’amande, je ne l’oublie jamais, j’y pense tout le temps. J’peux même plus mettre de lait d’amande dans mon café, il me sort par les yeux.
         *** Tous des incompétents.
             Tous ces enfoirés déploient un effort phénoménal pour ignorer ce détail. Le climat politique n’y est pas favorable. Des années qu’il ne l’a pas été.
-        *** Je devrais en finir.
-            Le cyanure... le cyanure... ça règlerait bon nombre de mes problèmes...
-    -- Je n’ai plus envie de t’écouter, plus personne, plus jamais.
+        *** Je devrais en finir. #audio en-finir #audio cyanure 5
+            Le cyanure... le cyanure... ça règlerait bon nombre de mes problèmes... #audio cyanure /* TODO: how to play this audio? */
+    -- Je n’ai plus envie de t’écouter, plus personne, plus jamais. #audio plus-envie-ecouter 13
 /* Ducray attrape son manteau et s'en va. */
 -> END
