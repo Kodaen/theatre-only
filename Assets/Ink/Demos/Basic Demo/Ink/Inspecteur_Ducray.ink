@@ -43,11 +43,11 @@ VAR colere = false
     Derrière l'énorme tas de dossiers, on distingue à peine le bois du bureau. Du chêne. Le bureau de Ducray est à l'image de sa vie : bordélique. Chaotique. Abîmé. En instance de divorce. 
     ** (fouiller_bureau) Fouiller parmi les dossiers. #audio fouiller-dossier 3 #audio dossier-escalade
         /* Il fouille dans les dossiers*/ {Les dossiers s'escaladent les uns les autres. Derrière cette apparent chaos se cache en réalité une logique implacable : il y a les dossiers, et il y a le dossier. | }
-        *** Consulter les dossiers. 
+        *** Consulter les dossiers. #audio consult-dossier #audio toise-dossier 4
             Ducray toise les dossiers. Du boulot. Il déteste le boulot. Du moins, il déteste son boulot. Ceux des autres n'ont pas l'air si mal, en comparaison... Ces derniers mois, les affaires s'accumulent. La tension politique est à son comble, les attentats se multiplient.
-            **** (attentats_politiques) Les attentats.
+            **** (attentats_politiques) Les attentats. #audio attentats #audio travailleurs-colere 2
                 Les travailleurs sont très en colère. D'abord, c'était contre ce qu'ils appellaient le système. Désormais, leur colère semble se porter sur des individus. Des patrons, des hommes politiques. Des riches... Ducray ne les aime pas trop, ces travailleurs. Trop politiques à son goût. Les riches, il les déteste carrément. Ducray n'aime pas grand monde. -> fouiller_bureau
-        *** (consulter_dossier) Consulter le dossier.
+        *** (consulter_dossier) Consulter le dossier. #audio consult-dossier2
             {Ducray ressort machinalement le dossier. Il l'a lu tant de fois qu'il le connaît par cœur. Jade de Fougerolles a été retrouvée morte le dimanche 23 septembre de l'année dernière, aux alentours de dix-neuf heures. Elle flottait, inerte, au milieu de sa piscine. Le descriptif de la mort est accompagné d'une photo du corps repêché, d'une copie du témoignage de l'homme qui la retrouvée morte, ainsi que du rapport d'autopsie. | Ducray consulte le dossier, une énième fois.}
             **** (photo_victime) La photo de la victime.
                 La photo présente une femme, habillée d'une robe de cocktail blanche, allongée sur le bord d'une piscine. Elle est trempée jusqu'aux os. Sa robe lui colle à la peau. Son corps, blanc comme la craie. La femme n'a jamais été prise en photo dans la piscine dans laquelle elle s'est noyée. Au moment de l'arrivée de la police, le corps avait déja été tiré hors de l'eau. -> consulter_dossier
