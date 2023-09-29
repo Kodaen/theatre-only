@@ -589,6 +589,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6cf02d214620fd7458d019c499b13cfa, type: 3}
   - {fileID: 8300000, guid: 40435bbeeb3f67f4793f8bb915afcef5, type: 3}
   - {fileID: 8300000, guid: 9a77bfa144ba25c4981af43a73a5e718, type: 3}
+  - {fileID: 8300000, guid: 35aea34f4a8286f419c1d21c3f90e8bc, type: 3}
+  - {fileID: 8300000, guid: c1fcc7d5e3bd1cd4490ca537437183a8, type: 3}
+  - {fileID: 8300000, guid: 053879f3bbffa1343ab3e9c915fac9c6, type: 3}
+  - {fileID: 8300000, guid: a19b677369e307e459142e88bed77f8f, type: 3}
+  - {fileID: 8300000, guid: 47c9d29d96cf7794aa8c698dd4fbe1e5, type: 3}
+  - {fileID: 8300000, guid: 8e8ea20cdb673af48bc82de2c77bf573, type: 3}
   inkJSONAsset: {fileID: 4900000, guid: 58e2d4885c7ce3f4e86c8cb31bc5f712, type: 3}
   canvas: {fileID: 1940341235}
   videoCanvas: {fileID: 943573927}
@@ -836,7 +842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22481992, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1453.5001
+      value: 1102.5
       objectReference: {fileID: 0}
     - target: {fileID: 22481992, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
       propertyPath: m_SizeDelta.y
@@ -872,7 +878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22481992, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 726.75006
+      value: 551.25
       objectReference: {fileID: 0}
     - target: {fileID: 22481992, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1352,7 +1358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22481992, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1453.5001
+      value: 1102.5
       objectReference: {fileID: 0}
     - target: {fileID: 22481992, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
       propertyPath: m_SizeDelta.y
