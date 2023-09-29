@@ -20,6 +20,8 @@ public class BasicInkExample : MonoBehaviour
 
     public List<AudioClip> audioClipsList;
 
+    public List<string> audioClipsPlayed;
+
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -70,12 +72,12 @@ public class BasicInkExample : MonoBehaviour
         {
             string[] tagData = story.currentTags?[0].Split(' ');
             string eventType = tagData[0];
-            if (eventType == "audio")
+            string audioClipName = tagData[1];
+            if (eventType == "audio" && !audioClipsPlayed.Contains(audioClipName))
             {
                 // Assume there is just one tag per choice and the second splitted value is the file to play.
-                string audioClipName = tagData[1];
                 PlaySoundForChoice(audioClipName);
-                Debug.Log(audioClipName);
+                audioClipsPlayed.Add(audioClipName);
             }
         }
 
@@ -130,7 +132,7 @@ public class BasicInkExample : MonoBehaviour
             int brightness = int.Parse(tagData[2]);
             SendDMXMessage(channel, brightness);
 
-            if (!string.IsNullOrWhiteSpace(choice.tags[1]))
+            if (choice.tags.Count == 2)
             {
                 // More than one tag per choice when we need to send messages to two light bulbs (and maybe the fog machine? TODO:).
                 // TODO: Test with the DMX setup.
