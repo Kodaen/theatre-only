@@ -47,21 +47,21 @@ VAR colere = false
             Ducray toise les dossiers. Du boulot. Il déteste le boulot. Du moins, il déteste son boulot. Ceux des autres n'ont pas l'air si mal, en comparaison... Ces derniers mois, les affaires s'accumulent. La tension politique est à son comble, les attentats se multiplient.
             **** (attentats_politiques) Les attentats. #audio attentats #audio travailleurs-colere 2
                 Les travailleurs sont très en colère. D'abord, c'était contre ce qu'ils appellaient le système. Désormais, leur colère semble se porter sur des individus. Des patrons, des hommes politiques. Des riches... Ducray ne les aime pas trop, ces travailleurs. Trop politiques à son goût. Les riches, il les déteste carrément. Ducray n'aime pas grand monde. -> fouiller_bureau
-        *** (consulter_dossier) Consulter le dossier. #audio consult-dossier2
+        *** (consulter_dossier) Consulter le dossier. #audio consult-dossier2 #audio ressort-dossier 2
             {Ducray ressort machinalement le dossier. Il l'a lu tant de fois qu'il le connaît par cœur. Jade de Fougerolles a été retrouvée morte le dimanche 23 septembre de l'année dernière, aux alentours de dix-neuf heures. Elle flottait, inerte, au milieu de sa piscine. Le descriptif de la mort est accompagné d'une photo du corps repêché, d'une copie du témoignage de l'homme qui la retrouvée morte, ainsi que du rapport d'autopsie. | Ducray consulte le dossier, une énième fois.}
-            **** (photo_victime) La photo de la victime.
+            **** (photo_victime) La photo de la victime. #audio photo-victime #audio photo-presente-femme 4
                 La photo présente une femme, habillée d'une robe de cocktail blanche, allongée sur le bord d'une piscine. Elle est trempée jusqu'aux os. Sa robe lui colle à la peau. Son corps, blanc comme la craie. La femme n'a jamais été prise en photo dans la piscine dans laquelle elle s'est noyée. Au moment de l'arrivée de la police, le corps avait déja été tiré hors de l'eau. -> consulter_dossier
-            **** (copie_temoignage) La copie du témoignage.
+            **** (copie_temoignage) La copie du témoignage. #audio copie-temoignage # audio lhomme-qui-a-decouvert 4
                 L'homme qui a découvert le corps est Arthur Vasseur, un piscinier de trente-trois ans employé par la famille de la victime pour entretenir la piscine ainsi que le réseau de bassin qui s'étend sur toute la propriété. Il a déclaré avoir trouvé le corps aux alentours de dix-neuf heures. Il a tout de suite reconnu Jade, et a réussi tant bien que mal à la tirer hors de l'eau. Elle était déjà morte. Il a ensuite appelé la police. Divers détails de son témoignage ont parût suspects aux enquêteurs. Ensuite, la presse s'est emparé de l'affaire. Puis la sphère politique. Et finalement...
-                ***** (details_suspects) Des détails suspects.
+                ***** (details_suspects) Des détails suspects. #audio detail-suspects # audio artur-a-pretendu 3
                     Arthur a d'abord prétendu avoir senti le poul de la victime, puis s'est ravisé plus tard, lors d'un témoignage ultérieur. Il a également déclaré avoir pratiqué un massage cardiaque, alors même qu'il admettait que la victime était déjà morte. Il a prétexté que la panique lui avait fait perdre ses moyens... -> details_suspects_suite
-                ***** (details_suspects_suite) Et finalement... quoi ?
+                ***** (details_suspects_suite) Et finalement... quoi ? #audio finalement-quoi #audio artur-premiere-main 4
                     {Arthur est rapidement passé de témoin de première main à principal suspect. Ses empreintes recouvraient le corps de la victime. Il possédait également une clé de la propriété. Il connaissait la victime. Il avait un mobile. |}
-                    ****** Les empreintes.
+                    ****** Les empreintes. #audio les-empruntes #audio empruntes-retrouves-a-divers-endroits 3
                         Des empreintes ont été retrouvées à divers endroits du corps. Le suspect s'est défendu en expliquant qu'il avait tenté de lui faire un massage cardiaque. Sous la panique, il n'a pas pensé à laisser le corps en état. -> details_suspects_suite
-                    ****** La clé.
+                    ****** La clé. #audio la-clef #audio acces-a-divers-clefs 3
                         Son métier lui donnait accès à diverses clés, et il pouvait entrer dans la propriété à sa guise. C'est d'ailleurs comme ça qu'il a trouvé la victime. -> details_suspects_suite
-                    ****** Sa relation avec la victime.
+                    ****** Sa relation avec la victime. #audio relation-avec-la-victime
                         Elle était son employeur. Il était son employé. Arthur a toujours nié avoir un quelconque grief à son égard. -> details_suspects_suite
                     ****** Le mobile.
                         Elle était richissime. Il était pauvre. Pourtant, personne n'a jamais pensé qu'il ait pu en vouloir à son argent. D'autant que rien n'a été dérobé. En revanche... Il était politisé. Encarté. M.T.S.
